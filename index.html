@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vone - PC Optimizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1c1c1e;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden; /* Prevent scrolling during the animation */
+        }
+		
+		.startup-screen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		backdrop-filter: blur(10px);
+		opacity: 1;
+		transition: opacity 1s ease;
+		z-index: 9999; /* Keep it above everything else */
+		}
+	
+        .startup-screen img {
+            max-width: 60%;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            display: none; /* Hide main content initially */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 0;
+        }
+
+        header .header-text {
+            max-width: 50%;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: #9e9e9e;
+            margin: 20px 0;
+        }
+
+        .download-btn, .discord-btn {
+            background: linear-gradient(135deg, magenta, purple, #5c57ff);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-btn img, .discord-btn img, .credits-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .download-btn:hover, .discord-btn:hover, .credits-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .version-text {
+            font-size: 0.75rem;
+            color: #9e9e9e;
+            margin-top: 5px;
+        }
+
+        .mockup {
+            max-width: 45%;
+            border-radius: 10px;
+            padding: 5px;
+            background: linear-gradient(135deg, magenta, purple, #5c57ff);
+            transition: transform 0.3s ease;
+        }
+
+        .mockup:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .feature {
+            width: 300px;
+            background-color: #2a2a2d;
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent;
+            background-clip: padding-box, border-box;
+            background-origin: border-box;
+            box-shadow: 0 0 0 3px linear-gradient(135deg, magenta, purple, #5c57ff);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.4), 0 0 15px rgba(0, 0, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="startup-screen" id="startupScreen">
+        <img src="brand.png" alt="Brand Logo">
+    </div>
+
+    <div class="container" id="mainContent">
+        <header>
+            <div class="header-text">
+                <h1>Vone</h1>
+                <h2>Unleash your PC's full performance</h2>
+                <a href="http://cdn.hydragotcash.us.to/projects/Vone.4.0.Stable.Win64.zip" class="download-btn">
+                    <img src="download.png" alt="Download Icon">
+                    Download Latest Version
+                </a>
+                <a href="https://dsc.gg/vonecommunity" class="discord-btn">
+                    <img src="discord.png" alt="Discord Logo">
+                    Discord Server
+                </a>
+                <div class="version-text">v4.0 stable &bull; Windows 11, 10, 8.1, 8, and 7</div>
+            </div>
+            <img src="mockup.png" alt="Vone Mockup" class="mockup">
+        </header>
+
+        <section class="features">
+            <div class="feature">
+                <h3>Bloatware Remover</h3>
+                <p>Vone is designed to remove bloatware (Possibly unwanted software) and help your PC run smoother.</p>
+            </div>
+            <div class="feature">
+                <h3>Advanced Cleaning</h3>
+                <p>Deep cleans your system from unnecessary files, logs, and removes temporary files to improve your PC speed.</p>
+            </div>
+            <div class="feature">
+                <h3>Fully Open-Source</h3>
+                <p>Vone is fully open-source, so you can review the code and see if anything suspicious is happening.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Function to handle the startup screen and fade effect
+        window.onload = function() {
+            const startupScreen = document.getElementById('startupScreen');
+            const mainContent = document.getElementById('mainContent');
+
+            setTimeout(() => {
+                startupScreen.style.opacity = '0'; // Fade out the startup screen
+                setTimeout(() => {
+                    startupScreen.style.display = 'none'; // Remove the startup screen
+                    mainContent.style.display = 'block'; // Show main content
+                }, 500); // Wait for the fade-out to complete
+            }, 1200); // Show startup screen for 1.5 seconds
+        }
+    </script>
+
+</body>
+</html>
